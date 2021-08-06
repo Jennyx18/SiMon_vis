@@ -1,6 +1,7 @@
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+import dash_bootstrap_components as dbc
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
@@ -33,7 +34,7 @@ plot_data = []
 layout = html.Div([
 
     #Title
-    html.Div("Simon Simulation Progress", style={'text-align':'center', 'font-size':'28px'}),
+    html.Div("Simon Simulation Progress", style={'text-align':'center', 'font-size':'28px', 'font-weight':'bold'}, className='Heading 1'),
     html.Br(),
 
     #Second row titles w/ dropdown box
@@ -83,24 +84,21 @@ layout = html.Div([
 
     #Buttons
     html.Div([
-        html.Button('Run', id='run_button',
+        dbc.Button('Run', id='run_button', className='btn-success',
+                   style={
+                    'margin-right': '20px',
+                    'font-size': '15px'
+                    }
+                   ),
+        dbc.Button('Restart', id='restart_button', className='btn-info',
                     style={
-                        'background-color': 'transparent',
-                        'border-radius': '12px',
-                        'font-size': '15px'
-                    }),
-        html.Button('Restart', id='restart_button',
+                    'margin-right': '20px',
+                    'font-size': '15px'
+                    }
+                   ),
+        dbc.Button('Stop', id='stop_button', className='btn-danger',
                     style={
-                        'margin': '0px 20px',
-                        'background-color': 'transparent',
-                        'border-radius': '12px',
-                        'font-size': '15px'
-                    }),
-        html.Button('Stop', id='stop_button',
-                    style={
-                        'background-color': 'transparent',
-                        'border-radius': '12px',
-                        'font-size': '15px',
+                    'font-size': '15px',
                     }),
 
     ], style={'text-align':'center'}

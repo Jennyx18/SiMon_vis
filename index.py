@@ -1,6 +1,7 @@
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+import dash_bootstrap_components as dbc
 
 # Connect to main app.py file
 from app import app
@@ -12,10 +13,12 @@ from apps import config, sim_progress
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
-    html.Div([
+    html.Div(
+        [
         dcc.Link('Simulation Progresses |', href='/apps/sim_progress'),
         dcc.Link('Configurations', href='/apps/config'),
-    ], className="row"),
+    ], className="row", style={'padding-left':'20px'}
+        ),
     html.Div(id='page-content', children=[])
 ])
 
